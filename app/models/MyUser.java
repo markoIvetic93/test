@@ -6,7 +6,7 @@ import play.db.jpa.*;
 
 @Entity
 @Table(name="user")
-public class User extends Model{
+public class MyUser extends Model{
 	
 	@Column
 	public String name;

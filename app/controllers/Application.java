@@ -5,7 +5,7 @@ import play.mvc.*;
 
 import java.util.*;
 
-import models.*;
+import models.MyUser;
 
 public class Application extends Controller {
 
@@ -14,7 +14,7 @@ public class Application extends Controller {
     }
     
     public static void users() {
-        List<User> users = User.findAll();
+        List<User> users = MyUser.findAll();
         renderJSON(users);
     }
 
