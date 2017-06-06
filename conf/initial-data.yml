@@ -1,0 +1,18 @@
+User(user1):
+   name: Dragan
+   surname: Vidakovic
+   username: gagi
+   password: wockica
+   email: gagi@gmail.com
+   isAdmin: false
+   registrationNumber: 074M168
+   
+User(user2):
+   name: Jana
+   surname: Vojnovic
+   username: xijana
+   password: rospija
+   email: xi@gmail.com
+   isAdmin: false
+   registrationNumber: NS231LS
+   
