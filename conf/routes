@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /                                       		Application.index
 
 # User
 GET		/users/all										Users.all
@@ -19,6 +19,7 @@ GET		/parkings/get/{id}								Parkings.get
 GET     /parkings/get/title/{title}                     Parkings.getByTitle
 POST	/parkings/update								Parkings.update
 PUT		/parkings/create								Parkings.create
+POST    /parkings/updateCapacity                        Parkings.updateCapacity
 DELETE	/parkings/delete/{id}							Parkings.delete
 
 # Ignore favicon requests
