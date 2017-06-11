@@ -8,8 +8,8 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-@Table(name="User")
-public class User extends Model{
+@Table(name="MyUser")
+public class MyUser extends Model{
 	
 	public String name;
 	public String surname;
@@ -20,7 +20,7 @@ public class User extends Model{
 	public boolean isAdmin;
 	public String registrationNumber;
 
-	public User(String name, String surname, String username, String password, String email, boolean isAdmin,
+	public MyUser(String name, String surname, String username, String password, String email, boolean isAdmin,
 			String registrationNumber) {
 		this.name = name;
 		this.surname = surname;
