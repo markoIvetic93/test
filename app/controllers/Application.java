@@ -14,8 +14,12 @@ public class Application extends Controller {
     }
     
     public static void users() {
+    	try{
         List<MyUser> users = MyUser.findAll();
         renderJSON(users);
+    	}catch(Exception e){
+			error("Unable to read entities!");
+		}
     }
 
 }
