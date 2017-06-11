@@ -11,31 +11,20 @@ import play.db.jpa.Model;
 @Table(name="User")
 public class User extends Model{
 	
-	@Column
 	public String name;
-	@Column
 	public String surname;
-	
-	@Required
-	@Column(nullable=false, unique=true)
 	public String username;
 	
-	@Required
-	@Column(nullable=false)
 	public String password;
 	
-	@Column
 	public String email;
 	
-	@Column
 	public boolean isAdmin;
 	
-	@Column(unique=true)
 	public String registrationNumber;
 
 	public User(String name, String surname, String username, String password, String email, boolean isAdmin,
 			String registrationNumber) {
-		super();
 		this.name = name;
 		this.surname = surname;
 		this.username = username;
