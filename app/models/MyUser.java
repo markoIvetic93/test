@@ -32,6 +32,7 @@ public class MyUser extends Model{
 
 	public MyUser(String name, String surname, String username, String password, String email, boolean isAdmin,
 			String registrationNumber) {
+		super();
 		this.name = name;
 		this.surname = surname;
 		this.username = username;
