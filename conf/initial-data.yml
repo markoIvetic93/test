@@ -38,7 +38,7 @@ models.Parking(parking3):
    image: lala
    latitude: 45.246357
    longitude: 19.834294
-User(user1):
+MyUser(user1):
    name: Dragan
    surname: Vidakovic
    username: gagi
@@ -46,7 +46,7 @@ User(user1):
    email: gagi@gmail.com
    isAdmin: false
    registrationNumber: 074M168
-User(user2):
+MyUser(user2):
    name: Jana
    surname: Vojnovic
    username: xijana
