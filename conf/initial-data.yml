@@ -1,4 +1,4 @@
-models.Parking(parking1):
+Parking(parking1):
    parkingName: Centar
    adress: Jevrejska 10
    totalNumberOfSpaces: 50
@@ -11,8 +11,7 @@ models.Parking(parking1):
    image: lala
    latitude: 45.253728
    longitude: 19.841242
-   
-models.Parking(parking2):
+Parking(parking2):
    parkingName: Liman
    adress: Bulevar cara Lazara 45
    totalNumberOfSpaces: 100
@@ -39,8 +38,7 @@ models.Parking(parking3):
    image: lala
    latitude: 45.246357
    longitude: 19.834294
-   
-models.User(user1):
+User(user1):
    name: Dragan
    surname: Vidakovic
    username: gagi
@@ -48,8 +46,7 @@ models.User(user1):
    email: gagi@gmail.com
    isAdmin: false
    registrationNumber: 074M168
-   
-models.User(user2):
+User(user2):
    name: Jana
    surname: Vojnovic
    username: xijana
