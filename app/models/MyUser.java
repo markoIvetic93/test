@@ -15,11 +15,9 @@ public class MyUser extends Model{
 	public String name;
 	@Column
 	public String surname;
-	@Column
 	@Column(nullable=false, unique=true)
 	public String username;
 	
-	@Column
 	@Column(nullable=false)
 	public String password;
 	
@@ -29,7 +27,6 @@ public class MyUser extends Model{
 	@Column
 	public boolean isAdmin;
 	
-	@Column
 	@Column(unique=true)
 	public String registrationNumber;
 
