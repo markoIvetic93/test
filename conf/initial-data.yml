@@ -6,7 +6,6 @@ MyUser(user1):
    email: gagi@gmail.com
    isAdmin: false
    registrationNumber: 074M168
-   
 MyUser(user2):
    name: Jana
    surname: Vojnovic
