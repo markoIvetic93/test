@@ -5,7 +5,7 @@ import play.data.validation.Required;
 import play.db.jpa.*;
 
 @Entity
-@Table(name="user")
+@Table(name="MyUser")
 public class MyUser extends Model{
 	
 	public String name;
