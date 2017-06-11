@@ -12,7 +12,7 @@ public class Users extends Controller{
 	
 	public static void all(){
 		try{
-			List<models.MyUser> users = models.MyUser.findAll();
+			List<models.User> users = models.User.findAll();
 			renderJSON(users);
 		}catch(Exception e){
 			error("Unable to read entities!");
@@ -21,7 +21,7 @@ public class Users extends Controller{
 	
 	public static void get(long id){
 		try{
-			models.MyUser user = models.MyUser.findById(id);
+			models.User user = models.User.findById(id);
 			renderJSON(user);
 		}catch(Exception e){
 			error("Unable to read entity!");
@@ -30,8 +30,8 @@ public class Users extends Controller{
 	
 	public static void getByUsername(String username){
 		try{
-			List<models.MyUser> users = models.MyUser.find("byUsername", username).fetch();
-			models.MyUser user = users.get(0);
+			List<models.User> users = models.User.find("byUsername", username).fetch();
+			models.User user = users.get(0);
 //			for(int i = 0; i <= users.size(); i++){
 //				user = users.get(i);
 //			}
@@ -46,9 +46,9 @@ public class Users extends Controller{
 			String jsonAsString = params.get("body");
 			JsonParser jsonParser = new JsonParser();
 			JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
-			models.MyUser newUser = new Gson().fromJson(jsonObject, models.MyUser.class);
+			models.User newUser = new Gson().fromJson(jsonObject, models.User.class);
 			
-			models.MyUser oldUser = models.MyUser.findById(newUser.id);
+			models.User oldUser = models.User.findById(newUser.id);
 
 			oldUser.username = newUser.username;
 			
@@ -64,7 +64,7 @@ public class Users extends Controller{
 		String jsonAsString = params.get("body");
 		JsonParser jsonParser = new JsonParser();
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
-		models.MyUser newUser = new Gson().fromJson(jsonObject, models.MyUser.class);
+		models.User newUser = new Gson().fromJson(jsonObject, models.User.class);
 		
 		newUser.password = newUser.password;
 		
@@ -82,7 +82,7 @@ public class Users extends Controller{
 	
 	public static void delete(Long id){
 		try{
-			models.MyUser user = models.MyUser.findById(id);
+			models.User user = models.User.findById(id);
 			
 			user.delete();
 			ok();
