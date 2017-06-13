@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import play.db.jpa.Model;
 
 @Entity
-@Table(name="Parking")
+@Table(name="Comment")
 public class Comment extends Model{
 
 	@Column
