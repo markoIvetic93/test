@@ -4,7 +4,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.json.simple.JSONObject;
+import com.google.gson.Gson;
+
 
 public class SendPushNotification {
 	
@@ -29,12 +30,16 @@ public class SendPushNotification {
 	   conn.setRequestProperty("Authorization","key="+authKey);
 	   conn.setRequestProperty("Content-Type","application/json");
 
-	   JSONObject json = new JSONObject();
-	   json.put("to","/topics/"+userDeviceIdKey.trim());
-	   JSONObject info = new JSONObject();
-	   info.put("title", "Notificatoin Title"); // Notification title
-	   info.put("body", "Hello Test notification"); // Notification body
-	   json.put("notification", info);
+	   Gson json = new Gson();
+	   String to = "/topics/"+userDeviceIdKey.trim();
+	   json.toJson(to);
+	   Gson info = new Gson();
+	   String title = "Notificatoin Title";
+	   info.toJson(title); // Notification title
+	   String body = "Hello Test notification";
+	   info.toJson(body); // Notification body
+	   Gson notification = info;
+	   json.toJson(notification);
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 	   wr.write(json.toString());
