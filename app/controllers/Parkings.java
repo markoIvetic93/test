@@ -107,4 +107,15 @@ public class Parkings extends Controller{
 			error("Unable to read entity!");
 		}
 	}
+	
+	public static void sendPushNot()
+	{
+		try {
+			SendPushNotification.pushFCMNotification("reservation");
+		} catch (Exception e) {
+				// TODO Auto-generated catch block
+			renderJSON("NIJE Poslata push notifikacija.");
+		}
+		renderJSON("Poslata push notifikacija.");
+	}
 }

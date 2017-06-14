@@ -3,7 +3,6 @@
 # ~~~~
 
 # Home page
-GET     /                                       		Application.index
 
 # User
 GET		/users/all										Users.all
