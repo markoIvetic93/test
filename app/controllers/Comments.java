@@ -10,9 +10,9 @@ import play.mvc.Controller;
 
 public class Comments extends Controller{
 
-	public static void all(){
+	public static void listCommentsByParking(String title){
 		try{
-			List<models.Comment> comments = models.Comment.findAll();
+			List<models.Comment> comments = models.Comment.find("byParkingname", title).fetch();
 			renderJSON(comments);
 		}catch(Exception e){
 			error("Unable to read entities!");

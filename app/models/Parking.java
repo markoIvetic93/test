@@ -34,11 +34,15 @@ public class Parking extends Model{
 	public double latitude;
 	@Column
 	public double longitude;
+	@Column
+	public int ratingSum;
+	@Column
+	public int numberOfVotes;
 	
 	
 	public Parking(String parkingName, String adress, int totalNumberOfSpaces, int numberOfFreeSpaces,
 			double workingDayPrice, double weekendPrice, String workTime, String paymentWay, String informations,
-			String image, double latitude, double longitude) {
+			String image, double latitude, double longitude, int ratingSum, int numberOfVotes) {
 		super();
 		this.parkingName = parkingName;
 		this.adress = adress;
@@ -52,6 +56,8 @@ public class Parking extends Model{
 		this.image = image;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.ratingSum = ratingSum;
+		this.numberOfVotes = numberOfVotes;
 	}
 	
 

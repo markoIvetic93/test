@@ -52,5 +52,21 @@ MyUser(user2):
    password: rospija
    email: xi@gmail.com
    isAdmin: false
-   registrationNumber: NS231LS
+   registrationNumber: NS231LS  
+MyUser(user3):
+   name: Admir
+   surname: Admirovic
+   username: admin
+   password: admin
+   email: admin@admin.com
+   isAdmin: true
+   registrationNumber: ADMIN
+MyUser(user4):
+   name: Men
+   surname: Menadzer
+   username: manager
+   password: manager
+   email: man@man.com
+   isAdmin: true
+   registrationNumber: MEN
    

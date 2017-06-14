@@ -20,9 +20,10 @@ POST	/parkings/update								Parkings.update
 PUT		/parkings/create								Parkings.create
 POST    /parkings/updateCapacity                        Parkings.updateCapacity
 DELETE	/parkings/delete/{id}							Parkings.delete
+POST 	/parkings/rate									Parkings.rate
 
 # Comment
-GET     /comments/all                                   Comments.all
+GET     /comments/get/{title}                           Comments.listCommentsByParking
 PUT     /comments/create                                Comments.create
 
 # Ignore favicon requests

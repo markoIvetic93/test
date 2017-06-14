@@ -28,6 +28,26 @@ public class Parkings extends Controller{
 		}
 	}
 	
+	public static void rate(){
+		try{
+			String jsonAsString = params.get("body");
+			JsonParser jsonParser = new JsonParser();
+			JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
+			models.Parking newParking = new Gson().fromJson(jsonObject, models.Parking.class);
+			
+			String title =  newParking.parkingName;
+			int rating = newParking.ratingSum;
+			List<models.Parking> parkings = models.Parking.find("byParkingname", title).fetch();
+			models.Parking parking = parkings.get(0);
+			parking.ratingSum = parking.ratingSum + rating;
+			parking.numberOfVotes = parking.numberOfVotes + 1;
+			parking.save();
+			renderJSON(parking);
+		}catch(Exception e){
+			error("Unable to read entity!");
+		}
+	}
+	
 	public static void getByTitle(String title){
 		try{
 			List<models.Parking> parkings = models.Parking.find("byParkingname", title).fetch();
