@@ -61,7 +61,7 @@ MyUser(user3):
    email: admin@admin.com
    isAdmin: true
    registrationNumber: ADMIN
-MyUser(user3):
+MyUser(user4):
    name: Men
    surname: Menadzer
    username: manager
