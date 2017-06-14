@@ -13,8 +13,7 @@ public class Comments extends Controller{
 	public static void listCommentsByParking(String title){
 		try{
 			List<models.Comment> comments = models.Comment.find("byParkingname", title).fetch();
-			models.Comment comment = comments.get(0);
-			renderJSON(comment);
+			renderJSON(comments);
 		}catch(Exception e){
 			error("Unable to read entities!");
 		}
