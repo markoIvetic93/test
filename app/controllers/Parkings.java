@@ -31,7 +31,7 @@ public class Parkings extends Controller{
 	public static void rate(){
 		try{
 			String title =  params.get("body");
-			int rating = params.get("body");
+			int rating = 1;
 			List<models.Parking> parkings = models.Parking.find("byParkingname", title).fetch();
 			models.Parking parking = parkings.get(0);
 			parking.ratingSum = parking.ratingSum + rating;
