@@ -28,6 +28,20 @@ public class Parkings extends Controller{
 		}
 	}
 	
+	public static void rate(){
+		try{
+			String title =  params.get("body");
+			int rating = params.get("body");
+			List<models.Parking> parkings = models.Parking.find("byParkingname", title).fetch();
+			models.Parking parking = parkings.get(0);
+			parking.ratingSum = parking.ratingSum + rating;
+			parking.numberOfVotes = parking.numberOfVotes + 1;
+			renderJSON(parking);
+		}catch(Exception e){
+			error("Unable to read entity!");
+		}
+	}
+	
 	public static void getByTitle(String title){
 		try{
 			List<models.Parking> parkings = models.Parking.find("byParkingname", title).fetch();
