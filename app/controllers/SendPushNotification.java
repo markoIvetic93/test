@@ -4,7 +4,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.google.gson.Gson;
+import org.json.simple.JSONObject;
 
 
 public class SendPushNotification {
@@ -14,7 +14,7 @@ public class SendPushNotification {
 
 	// userDeviceIdKey is the device id you will query from your database
 
-	public static void pushFCMNotification() throws Exception{
+	public static void pushFCMNotification(String deviceToken) throws Exception{
 
 	   String authKey = AUTH_KEY_FCM; // You FCM AUTH key
 	   String FMCurl = API_URL_FCM; 
@@ -30,16 +30,15 @@ public class SendPushNotification {
 	   conn.setRequestProperty("Authorization","key="+authKey);
 	   conn.setRequestProperty("Content-Type","application/json");
 
-	   Gson json = new Gson();
-	   String to = "/topics/reservation";
-	   json.toJson(to);
-	   Gson info = new Gson();
-	   String title = "Notificatoin Title";
-	   info.toJson(title); // Notification title
-	   String body = "Hello Test notification";
-	   info.toJson(body); // Notification body
-	   Gson notification = info;
-	   json.toJson(notification);
+	   JSONObject json = new JSONObject();
+	   json.put("to", deviceToken);
+	   JSONObject info = new JSONObject();
+	   info.put("title", "Hello"); // Notification title
+	   info.put("body", "First push notification from backedn!!!"); // Notification body
+	   info.put("type", "message");
+	   json.put("data", info);
+	   System.out.println(json.toString());
+
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 	   wr.write(json.toString());
