@@ -67,7 +67,9 @@ public class Parkings extends Controller{
 			
 			List<models.Parking> parkings = models.Parking.find("byParkingname", newParking.parkingName).fetch();
 			models.Parking oldParking = parkings.get(0);
+			
 			oldParking.numberOfFreeSpaces = newParking.numberOfFreeSpaces;
+			oldParking.informations = newParking.informations;
 			
 			Boolean success = oldParking.validateAndSave();
 
