@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 
 public class SendPushNotification {
 	
-	public final static String AUTH_KEY_FCM = "AAAAcKWYAKk:APA91bHa4xFSBXaBdfHmOR4wvVOd-9G6mrJWkWWd54TEo6Wj9KjsP-k6SFmNV7MhUHNFITQeCkGp9Px6ZYE4YwjeHBaAHukUE5M21gfaovd1hIF4cTK1UD50FeWpMUOaOvart5Q5kEP5";
+	public final static String AUTH_KEY_FCM = "AIzaSyA3PkNCDYHupclVdvlI3i-7yH2_Oq4gqP8";
 	public final static String API_URL_FCM = "https://fcm.googleapis.com/fcm/send";
 
 	// userDeviceIdKey is the device id you will query from your database
@@ -34,7 +34,7 @@ public class SendPushNotification {
 	   conn.setRequestProperty("Content-Type","application/json");
 	   
 	   PushNotificationBody notBody = new PushNotificationBody("Hello", "First push notification from backedn!!!", "message");
-	   PushNotificationHeader notHeader = new PushNotificationHeader(deviceToken, new Gson().toJson(notBody));
+	   PushNotificationHeader notHeader = new PushNotificationHeader("/topics/reservation", new Gson().toJson(notBody));
 	   
 	   
 /*	   json.put("to", deviceToken);
