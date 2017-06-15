@@ -65,8 +65,11 @@ public class Parkings extends Controller{
 			JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
 			models.Parking newParking = new Gson().fromJson(jsonObject, models.Parking.class);
 			
-			models.Parking oldParking = models.MyUser.findById(newParking.id);
-			oldParking.em().merge(newParking);
+			List<models.Parking> parkings = models.Parking.find("byParkingname", newParking.parkingName).fetch();
+			models.Parking oldParking = parkings.get(0);
+			
+			oldParking.numberOfFreeSpaces = newParking.numberOfFreeSpaces;
+			oldParking.informations = newParking.informations;
 			
 			Boolean success = oldParking.validateAndSave();
 
