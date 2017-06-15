@@ -7,8 +7,6 @@ import java.net.URL;
 import models.PushNotificationBody;
 import models.PushNotificationHeader;
 
-import org.json.simple.JSONObject;
-
 import com.google.gson.Gson;
 
 
