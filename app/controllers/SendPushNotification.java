@@ -14,7 +14,7 @@ public class SendPushNotification {
 
 	// userDeviceIdKey is the device id you will query from your database
 
-	public static void pushFCMNotification(String userDeviceIdKey) throws Exception{
+	public static void pushFCMNotification() throws Exception{
 
 	   String authKey = AUTH_KEY_FCM; // You FCM AUTH key
 	   String FMCurl = API_URL_FCM; 
@@ -31,7 +31,7 @@ public class SendPushNotification {
 	   conn.setRequestProperty("Content-Type","application/json");
 
 	   Gson json = new Gson();
-	   String to = "/topics/"+userDeviceIdKey.trim();
+	   String to = "/topics/reservation";
 	   json.toJson(to);
 	   Gson info = new Gson();
 	   String title = "Notificatoin Title";

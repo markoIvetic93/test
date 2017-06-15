@@ -134,7 +134,7 @@ public class Parkings extends Controller{
 	public static void sendPushNot()
 	{
 		try {
-			SendPushNotification.pushFCMNotification("reservation");
+			SendPushNotification.pushFCMNotification();
 		} catch (Exception e) {
 				// TODO Auto-generated catch block
 			renderJSON("NIJE Poslata push notifikacija.");
