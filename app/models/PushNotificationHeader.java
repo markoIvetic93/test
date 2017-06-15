@@ -7,9 +7,9 @@ public class PushNotificationHeader {
 	String to;
 	protected HashMap<String, String> header = new HashMap<String, String>();
 	
-	public PushNotificationHeader(String to, PushNotificationBody body)
+	public PushNotificationHeader(String to, String body)
 	{
 		header.put("to", to);
-		header.put("data", body.toString());
+		header.put("data", body);
 	}
 }

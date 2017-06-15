@@ -34,7 +34,7 @@ public class SendPushNotification {
 	   conn.setRequestProperty("Content-Type","application/json");
 	   
 	   PushNotificationBody notBody = new PushNotificationBody("Hello", "First push notification from backedn!!!", "message");
-	   PushNotificationHeader notHeader = new PushNotificationHeader(deviceToken, notBody);
+	   PushNotificationHeader notHeader = new PushNotificationHeader(deviceToken, new Gson().toJson(notBody));
 	   
 	   
 /*	   json.put("to", deviceToken);
@@ -42,11 +42,11 @@ public class SendPushNotification {
 	   info.put("body", "First push notification from backedn!!!"); // Notification body
 	   info.put("type", "message");
 	   json.put("data", info);*/
-	   System.out.println(new Gson().toJson(notHeader.toString()));
+	   System.out.println(new Gson().toJson(notHeader));
 
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-	   wr.write(new Gson().toJson(notHeader.toString()));
+	   wr.write(new Gson().toJson(notHeader));
 	   wr.flush();
 	   conn.getInputStream();
 	}
