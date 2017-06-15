@@ -4,7 +4,12 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import models.PushNotificationBody;
+import models.PushNotificationHeader;
+
 import org.json.simple.JSONObject;
+
+import com.google.gson.Gson;
 
 
 public class SendPushNotification {
@@ -29,19 +34,21 @@ public class SendPushNotification {
 	   conn.setRequestMethod("POST");
 	   conn.setRequestProperty("Authorization","key="+authKey);
 	   conn.setRequestProperty("Content-Type","application/json");
-
-	   JSONObject json = new JSONObject();
-	   json.put("to", deviceToken);
-	   JSONObject info = new JSONObject();
+	   
+	   PushNotificationBody notBody = new PushNotificationBody("Hello", "First push notification from backedn!!!", "message");
+	   PushNotificationHeader notHeader = new PushNotificationHeader(deviceToken, notBody);
+	   
+	   
+/*	   json.put("to", deviceToken);
 	   info.put("title", "Hello"); // Notification title
 	   info.put("body", "First push notification from backedn!!!"); // Notification body
 	   info.put("type", "message");
-	   json.put("data", info);
-	   System.out.println(json.toString());
+	   json.put("data", info);*/
+	   System.out.println(new Gson().toJson(notHeader.toString()));
 
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-	   wr.write(json.toString());
+	   wr.write(new Gson().toJson(notHeader.toString()));
 	   wr.flush();
 	   conn.getInputStream();
 	}
