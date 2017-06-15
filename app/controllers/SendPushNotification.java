@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 
 public class SendPushNotification {
 	
-	public final static String AUTH_KEY_FCM = "AIzaSyA3PkNCDYHupclVdvlI3i-7yH2_Oq4gqP8";
+	public final static String AUTH_KEY_FCM = "AAAAcKWYAKk:APA91bHa4xFSBXaBdfHmOR4wvVOd-9G6mrJWkWWd54TEo6Wj9KjsP-k6SFmNV7MhUHNFITQeCkGp9Px6ZYE4YwjeHBaAHukUE5M21gfaovd1hIF4cTK1UD50FeWpMUOaOvart5Q5kEP5";
 	public final static String API_URL_FCM = "https://fcm.googleapis.com/fcm/send";
 
 	// userDeviceIdKey is the device id you will query from your database
