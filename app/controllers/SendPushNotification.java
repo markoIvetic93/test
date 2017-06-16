@@ -44,7 +44,7 @@ public class SendPushNotification {
 	   json.put("data", info);*/
 	   //System.out.println(new Gson().toJson(notHeader));
 	   
-	   String notification = "{\"to\":\"topics/reservation\",\"notification\":{\"title\":\"message from server\",\"body\":\"first notification from server\"}}";
+	   String notification = "{\"to\":\"topics/reservation\",\"data\":{\"title\":\"message from server\",\"body\":\"first notification from server\"}}";
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 	   wr.write(notification);
