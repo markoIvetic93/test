@@ -12,12 +12,12 @@ import com.google.gson.Gson;
 
 public class SendPushNotification {
 	
-	public final static String AUTH_KEY_FCM = "AIzaSyD9JpLppgR-9ujxz16NWSi8SP4KlhrLmkc";
+	public final static String AUTH_KEY_FCM = "AAAAcKWYAKk:APA91bHa4xFSBXaBdfHmOR4wvVOd-9G6mrJWkWWd54TEo6Wj9KjsP-k6SFmNV7MhUHNFITQeCkGp9Px6ZYE4YwjeHBaAHukUE5M21gfaovd1hIF4cTK1UD50FeWpMUOaOvart5Q5kEP5";
 	public final static String API_URL_FCM = "https://fcm.googleapis.com/fcm/send";
 
 	// userDeviceIdKey is the device id you will query from your database
 
-	public static void pushFCMNotification() throws Exception{
+	public static String pushFCMNotification() throws Exception{
 
 	   String authKey = AUTH_KEY_FCM; // You FCM AUTH key
 	   String FMCurl = API_URL_FCM; 
@@ -50,6 +50,7 @@ public class SendPushNotification {
 	   wr.write(notification);
 	   wr.flush();
 	   conn.getInputStream();
+	   return notification;
 	}
 	
 }
