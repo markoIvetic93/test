@@ -21,6 +21,7 @@ PUT		/parkings/create								Parkings.create
 POST    /parkings/updateCapacity                        Parkings.updateCapacity
 DELETE	/parkings/delete/{id}							Parkings.delete
 POST 	/parkings/rate									Parkings.rate
+POST    /parkings/increaseCapacity                      Parkings.increaseCapacity
 GET		/parkings/sendPushNot							Parkings.sendPushNot
 
 # Comment
