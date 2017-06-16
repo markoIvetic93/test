@@ -130,7 +130,7 @@ public class Parkings extends Controller{
 			error("Unable to read entity!");
 		}
 	}
-	
+
 	public static void increaseCapacity(){
 		try{
 			String title = params.get("body").split("\"\"")[0].split("\"")[1];
@@ -149,10 +149,10 @@ public class Parkings extends Controller{
 		}
 	}
 	
-	public static void sendPushNot()
+	public static void sendPushNot(String deviceToken)
 	{
 		try {
-			SendPushNotification.pushFCMNotification("reservation");
+			SendPushNotification.pushFCMNotification(deviceToken);
 		} catch (Exception e) {
 				// TODO Auto-generated catch block
 			renderJSON("NIJE Poslata push notifikacija.");

@@ -4,17 +4,20 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import models.PushNotificationBody;
+import models.PushNotificationHeader;
+
 import com.google.gson.Gson;
 
 
 public class SendPushNotification {
 	
-	public final static String AUTH_KEY_FCM = "AIzaSyD9JpLppgR-9ujxz16NWSi8SP4KlhrLmkc";
+	public final static String AUTH_KEY_FCM = "AIzaSyA3PkNCDYHupclVdvlI3i-7yH2_Oq4gqP8";
 	public final static String API_URL_FCM = "https://fcm.googleapis.com/fcm/send";
 
 	// userDeviceIdKey is the device id you will query from your database
 
-	public static void pushFCMNotification(String userDeviceIdKey) throws Exception{
+	public static void pushFCMNotification(String deviceToken) throws Exception{
 
 	   String authKey = AUTH_KEY_FCM; // You FCM AUTH key
 	   String FMCurl = API_URL_FCM; 
@@ -29,20 +32,21 @@ public class SendPushNotification {
 	   conn.setRequestMethod("POST");
 	   conn.setRequestProperty("Authorization","key="+authKey);
 	   conn.setRequestProperty("Content-Type","application/json");
+	   
+	   PushNotificationBody notBody = new PushNotificationBody("Hello", "First push notification from backedn!!!", "message");
+	   PushNotificationHeader notHeader = new PushNotificationHeader("/topics/reservation", new Gson().toJson(notBody));
+	   
+	   
+/*	   json.put("to", deviceToken);
+	   info.put("title", "Hello"); // Notification title
+	   info.put("body", "First push notification from backedn!!!"); // Notification body
+	   info.put("type", "message");
+	   json.put("data", info);*/
+	   System.out.println(new Gson().toJson(notHeader));
 
-	   Gson json = new Gson();
-	   String to = "/topics/"+userDeviceIdKey.trim();
-	   json.toJson(to);
-	   Gson info = new Gson();
-	   String title = "Notificatoin Title";
-	   info.toJson(title); // Notification title
-	   String body = "Hello Test notification";
-	   info.toJson(body); // Notification body
-	   Gson notification = info;
-	   json.toJson(notification);
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-	   wr.write(json.toString());
+	   wr.write(new Gson().toJson(notHeader));
 	   wr.flush();
 	   conn.getInputStream();
 	}
