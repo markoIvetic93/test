@@ -44,7 +44,7 @@ public class SendPushNotification {
 	   json.put("data", info);*/
 	   //System.out.println(new Gson().toJson(notHeader));
 	   
-	   String notification = "{\"to\":\"cdQvJB3tpJk:APA91bEvXt6T6TfJpin1BkG2ZfCJD-g0aPq8x27PU69FIYal2u1nXrqwkoJNaTykUjgXqOUV_xi0t2W7ULPutHZvjKFSjQchOQ9QjAXP-GcQp3BMQQD5R-MVZ1ZX3GQmbzhXHG6aJrwe\",\"notification\":{\"title\":\"messageFromServer\",\"body\":\"first notification from server\",\"time\":\"6/16/2016 23:45:00.000 GTM+02:00\"}}";
+	   String notification = "{\"to\":\"cdQvJB3tpJk:APA91bEvXt6T6TfJpin1BkG2ZfCJD-g0aPq8x27PU69FIYal2u1nXrqwkoJNaTykUjgXqOUV_xi0t2W7ULPutHZvjKFSjQchOQ9QjAXP-GcQp3BMQQD5R-MVZ1ZX3GQmbzhXHG6aJrwe\",\"notification\":{\"title\":\"messageFromServer\",\"body\":\"first notification from server\",\"time\":\"23:48:00.000 GTM+02:00\"}}";
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 	   wr.write(notification);
