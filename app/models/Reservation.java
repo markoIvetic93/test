@@ -22,7 +22,7 @@ public class Reservation extends Model{
 	public String parking;
 	
 	public Reservation(){
-		
+		super();
 	}
 
 	public Reservation(Date timeFrom, Date timeTo, String user, String parking) {

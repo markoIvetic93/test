@@ -17,23 +17,23 @@ import play.mvc.Controller;
 
 public class Reservations extends Controller{
 
-	public static void create(){
-		String jsonAsString = params.get("body");
-		JsonParser jsonParser = new JsonParser();
-		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
-		models.Reservation newReservation = new Gson().fromJson(jsonObject, models.Reservation.class);
-		
-		try{
-			Boolean success = newReservation.validateAndCreate();
-			if (success){
-				renderJSON(newReservation);
-			}else{
-				badRequest("Unable to validate and create entity!");
-			}
-		}catch(Exception e){
-			error("Unable to create entity!");
-		}
-	}
+//	public static void create(){
+//		String jsonAsString = params.get("body");
+//		JsonParser jsonParser = new JsonParser();
+//		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
+//		models.Reservation newReservation = new Gson().fromJson(jsonObject, models.Reservation.class);
+//		
+//		try{
+//			Boolean success = newReservation.validateAndCreate();
+//			if (success){
+//				renderJSON(newReservation);
+//			}else{
+//				badRequest("Unable to validate and create entity!");
+//			}
+//		}catch(Exception e){
+//			error("Unable to create entity!");
+//		}
+//	}
 	
 	public static void reserve(){
 		String jsonAsString = params.get("body");
