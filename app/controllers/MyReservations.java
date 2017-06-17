@@ -62,7 +62,7 @@ public class MyReservations extends Controller{
 //		Query query1 = JPA.em().createQuery("delete Reservation where timeto < date.now()");
 //		query1.executeUpdate();
 //		
-		Query query = JPA.em().createQuery("select count(*) from Myreservation where parking=? and (timefrom between ? and ? or timeto between ? and ? or timefrom < ? and timeto > ? )");
+		Query query = JPA.em().createQuery("select count(*) from MyReservation where parking=? and (timefrom between ? and ? or timeto between ? and ? or timefrom < ? and timeto > ? )");
 		query.setParameter(1, newReservation.parking);
 		query.setParameter(2, reportDate);
 		query.setParameter(3, reportDate1);
