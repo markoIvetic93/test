@@ -12,15 +12,15 @@ import play.db.jpa.Model;
 public class MyReservation extends Model{
 
 	@Column
-	public Date timeFrom;
+	public String timeFrom;
 	@Column
-	public Date timeTo;
+	public String timeTo;
 	@Column
 	public String resUser;
 	@Column
 	public String parking;
 
-	public MyReservation(Date timeFrom, Date timeTo, String user, String parking) {
+	public MyReservation(String timeFrom, String timeTo, String user, String parking) {
 		super();
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;

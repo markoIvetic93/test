@@ -49,7 +49,6 @@ public class MyReservations extends Controller{
 		JsonParser jsonParser = new JsonParser();
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
 		MyReservation newReservation = new Gson().fromJson(jsonObject, MyReservation.class);
-		newReservation.validateAndSave();
 //		List<MyReservation> reservations = MyReservation.find("byParkingAndUserAndTimefromAndTimeto", newReservation.parking, newReservation.resUser, newReservation.timeFrom, newReservation.timeTo).fetch();
 //		if(reservations.size() != 0){
 //			return;
@@ -58,7 +57,11 @@ public class MyReservations extends Controller{
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String reportDate = df.format(newReservation.timeFrom);
 		String reportDate1 = df.format(newReservation.timeTo);
-		
+		newReservation.timeFrom = reportDate;
+		newReservation.timeTo = reportDate1;
+
+		newReservation.validateAndSave();
+
 		Query query1 = JPA.em().createQuery("delete Reservation where timeto < date.now()");
 		//query1.setParameter(1, df.format(date));
 		query1.executeUpdate();
