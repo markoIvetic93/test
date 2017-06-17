@@ -10,7 +10,7 @@ import play.db.jpa.Model;
 @Table(name="Parking")
 public class Parking extends Model{
 	
-	@Column
+	@Column(unique=true, nullable=false)
 	public String parkingName;
 	@Column
 	public String adress;
