@@ -71,21 +71,25 @@ public class MyReservations extends Controller{
 		query.setParameter(6, reportDate);
 		query.setParameter(7, reportDate1);
 		List<Long> result = query.getResultList();
-		Long smor = result.get(0);
-		if(smor > 0){
-			List<models.Parking> parkings = models.Parking.find("byParkingname", newReservation.parking).fetch();
-			models.Parking parking = parkings.get(0);
-			Long smor1 = (long)parking.totalNumberOfSpaces;
-			if(smor < smor1){
-				newReservation.validateAndSave();
-				renderJSON(result.get(0));
-			}else{
-				return;
-			}
-		}else{
-			newReservation.save();
-			renderJSON(result.get(0));
-		}
+		
+		newReservation.validateAndSave();
+		newReservation.save();
+		renderJSON(result.get(0));
+//		Long smor = result.get(0);
+//		if(smor > 0){
+//			List<models.Parking> parkings = models.Parking.find("byParkingname", newReservation.parking).fetch();
+//			models.Parking parking = parkings.get(0);
+//			Long smor1 = (long)parking.totalNumberOfSpaces;
+//			if(smor < smor1){
+//				newReservation.validateAndSave();
+//				renderJSON(result.get(0));
+//			}else{
+//				return;
+//			}
+//		}else{
+//			newReservation.save();
+//			renderJSON(result.get(0));
+//		}
 	}
 	
 	public static void deleteReservation(){
