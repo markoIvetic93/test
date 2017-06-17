@@ -24,6 +24,10 @@ POST 	/parkings/rate									Parkings.rate
 POST    /parkings/increaseCapacity                      Parkings.increaseCapacity
 GET		/parkings/sendPushNot/{deviceToken}				Parkings.sendPushNot
 
+# Reservation
+POST    /reservations/reserve                           Reservations.reserve
+POST    /reservations/delete							Reservations.deleteReservation
+
 # Comment
 GET     /comments/get/{title}                           Comments.listCommentsByParking
 PUT     /comments/create                                Comments.create
