@@ -49,8 +49,9 @@ public class MyReservations extends Controller{
 		JsonParser jsonParser = new JsonParser();
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
 		MyReservation newReservation = new Gson().fromJson(jsonObject, MyReservation.class);
+		newReservation.validateAndSave();
 		newReservation.save();
-//		List<MyReservation> reservations = MyReservation.find("byParkingAndUserAndTimefromAndTimeto", newReservation.parking, newReservation.resUser, newReservation.timeFrom, newReservation.timeTo).fetch();
+//		List<MyReservation> reservations = MyReservation.find("byParkingAndResuserAndTimefromAndTimeto", newReservation.parking, newReservation.resUser, newReservation.timeFrom, newReservation.timeTo).fetch();
 //		if(reservations.size() != 0){
 //			return;
 //		}
