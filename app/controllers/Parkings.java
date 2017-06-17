@@ -149,13 +149,18 @@ public class Parkings extends Controller{
 		}
 	}
 	
-	public static void sendPushNot(String token, String time)
+	public static void sendPushNot()
 	{
+		String jsonAsString = params.get("body");
+		JsonParser jsonParser = new JsonParser();
+		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
+		models.PushParams pushParams = new Gson().fromJson(jsonObject, models.PushParams.class);
+		String not = null;
 		try {
-			SendPushNotification.pushFCMNotification(token, time);
+			not = SendPushNotification.pushFCMNotification(pushParams.token, pushParams.time);
 		} catch (Exception e) {
 				// TODO Auto-generated catch block
-			error("Cannot send push notification!");
+			renderJSON(not);
 		}
 		renderJSON(0);
 	}
