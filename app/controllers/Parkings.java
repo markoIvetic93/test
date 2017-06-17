@@ -156,7 +156,7 @@ public class Parkings extends Controller{
 			notification = SendPushNotification.pushFCMNotification(token, time);
 		} catch (Exception e) {
 				// TODO Auto-generated catch block
-			renderJSON("NIJE Poslata push notifikacija.");
+			renderJSON("NIJE Poslata push notifikacija."+ notification);
 		}
 		renderJSON("Poslata push notifikacija." + notification);
 	}
