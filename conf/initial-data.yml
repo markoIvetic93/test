@@ -70,7 +70,7 @@ MyUser(user4):
    isAdmin: true
    registrationNumber: MEN
 MyReservation(res1):
-   timeFrom: 2017-06-17 23:23
-   timeTo: 2017-06-17 23:45
+   timeFrom: 2017-06-17
+   timeTo: 2017-06-17
    resUser: blabla
    parking: Centar
