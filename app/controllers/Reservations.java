@@ -50,7 +50,6 @@ public class Reservations extends Controller{
 		String reportDate = df.format(newReservation.timeFrom);
 		String reportDate1 = df.format(newReservation.timeTo);
 		
-		Date date = new Date();
 		Query query1 = JPA.em().createQuery("delete Reservation where timeto < date.now()");
 		//query1.setParameter(1, df.format(date));
 		query1.executeUpdate();
@@ -70,7 +69,7 @@ public class Reservations extends Controller{
 			models.Parking parking = parkings.get(0);
 			Long smor1 = (long)parking.totalNumberOfSpaces;
 			if(smor < smor1){
-				newReservation.save();
+				newReservation.validateAndSave();
 				renderJSON(result.get(0));
 			}else{
 				return;
