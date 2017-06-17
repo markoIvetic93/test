@@ -20,11 +20,11 @@ public class MyReservation extends Model{
 	@Column
 	public String parking;
 
-	public MyReservation(Date timeFrom, Date timeTo, String user, String parking) {
+	public MyReservation(Date timeFrom, Date timeTo, String resUser, String parking) {
 		super();
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
-		this.resUser = user;
+		this.resUser = resUser;
 		this.parking = parking;
 	}
 	
