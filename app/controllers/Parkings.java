@@ -155,12 +155,11 @@ public class Parkings extends Controller{
 		JsonParser jsonParser = new JsonParser();
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
 		models.PushParams pushParams = new Gson().fromJson(jsonObject, models.PushParams.class);
-		String not = null;
 		try {
-			not = SendPushNotification.pushFCMNotification(pushParams.token, pushParams.time);
+			SendPushNotification.pushFCMNotification(pushParams.token, pushParams.time);
 		} catch (Exception e) {
 				// TODO Auto-generated catch block
-			renderJSON(not);
+			renderJSON("Greska");
 		}
 		renderJSON(0);
 	}
