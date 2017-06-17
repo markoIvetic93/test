@@ -35,6 +35,15 @@ public class Reservations extends Controller{
 //		}
 //	}
 	
+	public static void all(){
+		try{
+			List<models.Reservation> reservation = models.Reservation.findAll();
+			renderJSON(reservation);
+		}catch(Exception e){
+			error("Unable to read entities!" + e.getMessage());
+		}
+	}
+	
 	public static void reserve(){
 		String jsonAsString = params.get("body");
 		JsonParser jsonParser = new JsonParser();
