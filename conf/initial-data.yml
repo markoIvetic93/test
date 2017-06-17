@@ -72,5 +72,5 @@ MyUser(user4):
 MyReservation(res1):
    timeFrom: 2017-06-17 23:23
    timeTo: 2017-06-17 23:45
-   resUser: xijana
+   resUser: blabla
    parking: Centar
