@@ -151,13 +151,16 @@ public class Parkings extends Controller{
 	
 	public static void sendPushNot()
 	{
-		String notification = null;
+		String jsonAsString = params.get("body");
+		JsonParser jsonParser = new JsonParser();
+		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
+		models.PushParams pushParams = new Gson().fromJson(jsonObject, models.PushParams.class);
 		try {
-			notification = SendPushNotification.pushFCMNotification();
+			SendPushNotification.pushFCMNotification(pushParams.token, pushParams.time);
 		} catch (Exception e) {
 				// TODO Auto-generated catch block
-			renderJSON("NIJE Poslata push notifikacija.");
+			renderJSON("Greska");
 		}
-		renderJSON("Poslata push notifikacija." + notification);
+		renderJSON(0);
 	}
 }
