@@ -56,7 +56,7 @@ public class Reservations extends Controller{
 		query1.executeUpdate();
 		
 		Query query = JPA.em().createQuery("select count(*) from Reservation where parking=? and (timefrom between ? and ? or timeto between ? and ? or timefrom < ? and timeto > ? )");
-		query.setParameter(1, "Centar");
+		query.setParameter(1, newReservation.parking);
 		query.setParameter(2, reportDate);
 		query.setParameter(3, reportDate1);
 		query.setParameter(4, reportDate);
