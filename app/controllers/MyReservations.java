@@ -56,38 +56,37 @@ public class MyReservations extends Controller{
 //			return;
 //		}
 
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String reportDate = df.format(newReservation.timeFrom);
-		String reportDate1 = df.format(newReservation.timeTo);
-		
-		Query query1 = JPA.em().createQuery("delete Reservation where timeto < date.now()");
-		//query1.setParameter(1, df.format(date));
-		query1.executeUpdate();
-		
-		Query query = JPA.em().createQuery("select count(*) from Reservation where parking=? and (timefrom between ? and ? or timeto between ? and ? or timefrom < ? and timeto > ? )");
-		query.setParameter(1, newReservation.parking);
-		query.setParameter(2, reportDate);
-		query.setParameter(3, reportDate1);
-		query.setParameter(4, reportDate);
-		query.setParameter(5, reportDate1);
-		query.setParameter(6, reportDate);
-		query.setParameter(7, reportDate1);
-		List<Long> result = query.getResultList();
-		Long smor = result.get(0);
-		if(smor > 0){
-			List<models.Parking> parkings = models.Parking.find("byParkingname", newReservation.parking).fetch();
-			models.Parking parking = parkings.get(0);
-			Long smor1 = (long)parking.totalNumberOfSpaces;
-			if(smor < smor1){
-				newReservation.validateAndSave();
-				renderJSON(result.get(0));
-			}else{
-				return;
-			}
-		}else{
-			newReservation.save();
-			renderJSON(result.get(0));
-		}
+//		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		String reportDate = df.format(newReservation.timeFrom);
+//		String reportDate1 = df.format(newReservation.timeTo);
+//		
+//		Query query1 = JPA.em().createQuery("delete Reservation where timeto < date.now()");
+//		query1.executeUpdate();
+//		
+//		Query query = JPA.em().createQuery("select count(*) from Reservation where parking=? and (timefrom between ? and ? or timeto between ? and ? or timefrom < ? and timeto > ? )");
+//		query.setParameter(1, newReservation.parking);
+//		query.setParameter(2, reportDate);
+//		query.setParameter(3, reportDate1);
+//		query.setParameter(4, reportDate);
+//		query.setParameter(5, reportDate1);
+//		query.setParameter(6, reportDate);
+//		query.setParameter(7, reportDate1);
+//		List<Long> result = query.getResultList();
+//		Long smor = result.get(0);
+//		if(smor > 0){
+//			List<models.Parking> parkings = models.Parking.find("byParkingname", newReservation.parking).fetch();
+//			models.Parking parking = parkings.get(0);
+//			Long smor1 = (long)parking.totalNumberOfSpaces;
+//			if(smor < smor1){
+//				newReservation.validateAndSave();
+//				renderJSON(result.get(0));
+//			}else{
+//				return;
+//			}
+//		}else{
+//			newReservation.save();
+//			renderJSON(result.get(0));
+//		}
 	}
 	
 	public static void deleteReservation(){
