@@ -50,7 +50,7 @@ public class MyReservations extends Controller{
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
 		MyReservation newReservation = new Gson().fromJson(jsonObject, MyReservation.class);
 		
-		List<MyReservation> reservations = MyReservation.find("byParkingAndUserAndTimefromAndTimeto", newReservation.parking, newReservation.user, newReservation.timeFrom, newReservation.timeTo).fetch();
+		List<MyReservation> reservations = MyReservation.find("byParkingAndUserAndTimefromAndTimeto", newReservation.parking, newReservation.resUser, newReservation.timeFrom, newReservation.timeTo).fetch();
 		if(reservations.size() != 0){
 			return;
 		}
@@ -96,7 +96,7 @@ public class MyReservations extends Controller{
 		MyReservation newReservation = new Gson().fromJson(jsonObject, MyReservation.class);
 		
 		Query query1 = JPA.em().createQuery("delete Reservation where user = ? and parking = ? and timeto = ?");
-		query1.setParameter(1, newReservation.user);
+		query1.setParameter(1, newReservation.resUser);
 		query1.setParameter(2, newReservation.parking);
 		query1.setParameter(3, newReservation.timeTo);
 		try{

@@ -14,7 +14,7 @@ public class MyReservation extends Model{
 	@Column
 	public String timeTo;
 	@Column
-	public String user;
+	public String resUser;
 	@Column
 	public String parking;
 

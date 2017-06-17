@@ -25,9 +25,9 @@ POST    /parkings/increaseCapacity                      Parkings.increaseCapacit
 GET		/parkings/sendPushNot							Parkings.sendPushNot
 
 # Reservation
-GET		/reservations/all								Reservations.all
-POST    /reservations/reserve                           Reservations.reserve
-POST    /reservations/delete							Reservations.deleteReservation
+GET		/reservations/all								MyReservations.all
+POST    /reservations/reserve                           MyReservations.reserve
+POST    /reservations/delete							MyReservations.deleteReservation
 
 # Comment
 GET     /comments/get/{title}                           Comments.listCommentsByParking
