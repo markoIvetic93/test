@@ -33,7 +33,7 @@ public class SendPushNotification {
 	   
 	   //cdQvJB3tpJk:APA91bEvXt6T6TfJpin1BkG2ZfCJD-g0aPq8x27PU69FIYal2u1nXrqwkoJNaTykUjgXqOUV_xi0t2W7ULPutHZvjKFSjQchOQ9QjAXP-GcQp3BMQQD5R-MVZ1ZX3GQmbzhXHG6aJrwe
 	   
-	   String notification = "{\"to\":\""+ token +"\",\"notification\":{\"title\":\"Kraj rezervacije parkinga\",\"body\":\"Vas parking istice za " + time + " minuta.\"}}";
+	   String notification = "{\"to\":\"cdQvJB3tpJk:APA91bEvXt6T6TfJpin1BkG2ZfCJD-g0aPq8x27PU69FIYal2u1nXrqwkoJNaTykUjgXqOUV_xi0t2W7ULPutHZvjKFSjQchOQ9QjAXP-GcQp3BMQQD5R-MVZ1ZX3GQmbzhXHG6aJrwe\",\"notification\":{\"title\":\"Kraj rezervacije parkinga\",\"body\":\"Vas parking istice za " + time + " minuta.\"}}";
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 	   wr.write(notification);
