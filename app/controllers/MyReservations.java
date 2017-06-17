@@ -50,10 +50,10 @@ public class MyReservations extends Controller{
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
 		MyReservation newReservation = new Gson().fromJson(jsonObject, MyReservation.class);
 		
-		List<MyReservation> reservations = MyReservation.find("byParkingAndUserAndTimefromAndTimeto", newReservation.parking, newReservation.resUser, newReservation.timeFrom, newReservation.timeTo).fetch();
-		if(reservations.size() != 0){
-			return;
-		}
+//		List<MyReservation> reservations = MyReservation.find("byParkingAndUserAndTimefromAndTimeto", newReservation.parking, newReservation.resUser, newReservation.timeFrom, newReservation.timeTo).fetch();
+//		if(reservations.size() != 0){
+//			return;
+//		}
 
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String reportDate = df.format(newReservation.timeFrom);
@@ -95,7 +95,7 @@ public class MyReservations extends Controller{
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
 		MyReservation newReservation = new Gson().fromJson(jsonObject, MyReservation.class);
 		
-		Query query1 = JPA.em().createQuery("delete Reservation where user = ? and parking = ? and timeto = ?");
+		Query query1 = JPA.em().createQuery("delete Reservation where resuser = ? and parking = ? and timeto = ?");
 		query1.setParameter(1, newReservation.resUser);
 		query1.setParameter(2, newReservation.parking);
 		query1.setParameter(3, newReservation.timeTo);

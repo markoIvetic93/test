@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -10,15 +12,15 @@ import play.db.jpa.Model;
 public class MyReservation extends Model{
 
 	@Column
-	public String timeFrom;
+	public Date timeFrom;
 	@Column
-	public String timeTo;
+	public Date timeTo;
 	@Column
 	public String resUser;
 	@Column
 	public String parking;
 
-	public MyReservation(String timeFrom, String timeTo, String user, String parking) {
+	public MyReservation(Date timeFrom, Date timeTo, String user, String parking) {
 		super();
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
