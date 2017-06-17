@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import play.db.jpa.Model;
 
 @Entity
-@Table(name="reservation")
+@Table(name="Reservation")
 public class Reservation extends Model{
 
 	@Column
@@ -35,5 +35,6 @@ public class Reservation extends Model{
 	
 	
 	
+
 
 }

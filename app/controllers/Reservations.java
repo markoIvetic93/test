@@ -50,6 +50,7 @@ public class Reservations extends Controller{
 		String reportDate = df.format(newReservation.timeFrom);
 		String reportDate1 = df.format(newReservation.timeTo);
 		
+		Date date = new Date();
 		Query query1 = JPA.em().createQuery("delete Reservation where timeto < date.now()");
 		//query1.setParameter(1, df.format(date));
 		query1.executeUpdate();
