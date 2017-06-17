@@ -6,8 +6,8 @@ import javax.persistence.Table;
 import play.db.jpa.Model;
 
 @Entity
-@Table(name="Reservation")
-public class Reservation extends Model{
+@Table(name="MyReservation")
+public class MyReservation extends Model{
 
 	@Column
 	public String timeFrom;
@@ -18,7 +18,7 @@ public class Reservation extends Model{
 	@Column
 	public String parking;
 
-	public Reservation(String timeFrom, String timeTo, String user, String parking) {
+	public MyReservation(String timeFrom, String timeTo, String user, String parking) {
 		super();
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;

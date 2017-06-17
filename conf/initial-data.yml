@@ -69,7 +69,7 @@ MyUser(user4):
    email: man@man.com
    isAdmin: true
    registrationNumber: MEN
-Reservation(res1):
+MyReservation(res1):
    timeFrom: 2017-06-17 23:23
    timeTo: 2017-06-17 23:45
    user: xijana

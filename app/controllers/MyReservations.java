@@ -11,11 +11,11 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import models.Reservation;
+import models.MyReservation;
 import play.db.jpa.JPA;
 import play.mvc.Controller;
 
-public class Reservations extends Controller{
+public class MyReservations extends Controller{
 
 //	public static void create(){
 //		String jsonAsString = params.get("body");
@@ -37,7 +37,7 @@ public class Reservations extends Controller{
 	
 	public static void all(){
 		try{
-			List<models.Reservation> reservation = models.Reservation.findAll();
+			List<MyReservation> reservation = MyReservation.findAll();
 			renderJSON(reservation);
 		}catch(Exception e){
 			error("Unable to read entities!" + e.getMessage());
@@ -48,9 +48,9 @@ public class Reservations extends Controller{
 		String jsonAsString = params.get("body");
 		JsonParser jsonParser = new JsonParser();
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
-		models.Reservation newReservation = new Gson().fromJson(jsonObject, models.Reservation.class);
+		MyReservation newReservation = new Gson().fromJson(jsonObject, MyReservation.class);
 		
-		List<models.Reservation> reservations = models.Reservation.find("byParkingAndUserAndTimefromAndTimeto", newReservation.parking, newReservation.user, newReservation.timeFrom, newReservation.timeTo).fetch();
+		List<MyReservation> reservations = MyReservation.find("byParkingAndUserAndTimefromAndTimeto", newReservation.parking, newReservation.user, newReservation.timeFrom, newReservation.timeTo).fetch();
 		if(reservations.size() != 0){
 			return;
 		}
@@ -93,7 +93,7 @@ public class Reservations extends Controller{
 		String jsonAsString = params.get("body");
 		JsonParser jsonParser = new JsonParser();
 		JsonObject jsonObject = (JsonObject)jsonParser.parse(jsonAsString);
-		models.Reservation newReservation = new Gson().fromJson(jsonObject, models.Reservation.class);
+		MyReservation newReservation = new Gson().fromJson(jsonObject, MyReservation.class);
 		
 		Query query1 = JPA.em().createQuery("delete Reservation where user = ? and parking = ? and timeto = ?");
 		query1.setParameter(1, newReservation.user);
