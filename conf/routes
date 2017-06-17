@@ -40,4 +40,3 @@ GET     /favicon.ico                            404
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
-s
