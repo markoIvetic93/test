@@ -17,7 +17,7 @@ public class SendPushNotification {
 
 	// userDeviceIdKey is the device id you will query from your database
 
-	public static String pushFCMNotification() throws Exception{
+	public static String pushFCMNotification(String token, String time) throws Exception{
 
 	   String authKey = AUTH_KEY_FCM; // You FCM AUTH key
 	   String FMCurl = API_URL_FCM; 
@@ -33,18 +33,9 @@ public class SendPushNotification {
 	   conn.setRequestProperty("Authorization","key="+authKey);
 	   conn.setRequestProperty("Content-Type","application/json");
 	   
-	   //PushNotificationBody notBody = new PushNotificationBody("Hello", "First push notification from backedn!!!", "message");
-	   //PushNotificationHeader notHeader = new PushNotificationHeader("/topics/reservation", new Gson().toJson(notBody));
+	   //cdQvJB3tpJk:APA91bEvXt6T6TfJpin1BkG2ZfCJD-g0aPq8x27PU69FIYal2u1nXrqwkoJNaTykUjgXqOUV_xi0t2W7ULPutHZvjKFSjQchOQ9QjAXP-GcQp3BMQQD5R-MVZ1ZX3GQmbzhXHG6aJrwe
 	   
-	   
-/*	   json.put("to", deviceToken);
-	   info.put("title", "Hello"); // Notification title
-	   info.put("body", "First push notification from backedn!!!"); // Notification body
-	   info.put("type", "message");
-	   json.put("data", info);*/
-	   //System.out.println(new Gson().toJson(notHeader));
-	   
-	   String notification = "{\"to\":\"cdQvJB3tpJk:APA91bEvXt6T6TfJpin1BkG2ZfCJD-g0aPq8x27PU69FIYal2u1nXrqwkoJNaTykUjgXqOUV_xi0t2W7ULPutHZvjKFSjQchOQ9QjAXP-GcQp3BMQQD5R-MVZ1ZX3GQmbzhXHG6aJrwe\",\"notification\":{\"title\":\"messageFromServer\",\"body\":\"first notification from server\",\"time\":\"6/16/2016 23:59:00.000 GTM+02:00\"}}";
+	   String notification = String.format("{\"to\":\"{0}\",\"notification\":{\"title\":\"Kraj rezervacije parkinga\",\"body\":\"Vas parking istice za {1} minuta.\"}}", token, time);
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 	   wr.write(notification);
