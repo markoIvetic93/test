@@ -3,6 +3,7 @@ package controllers;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.MessageFormat;
 
 import com.google.gson.Gson;
 
@@ -32,7 +33,7 @@ public class SendPushNotification {
 	   
 	   //cdQvJB3tpJk:APA91bEvXt6T6TfJpin1BkG2ZfCJD-g0aPq8x27PU69FIYal2u1nXrqwkoJNaTykUjgXqOUV_xi0t2W7ULPutHZvjKFSjQchOQ9QjAXP-GcQp3BMQQD5R-MVZ1ZX3GQmbzhXHG6aJrwe
 	   
-	   String notification = String.format("{\"to\":\"{0}\",\"notification\":{\"title\":\"Kraj rezervacije parkinga\",\"body\":\"Vas parking istice za {1} minuta.\"}}", token, time);
+	   String notification = MessageFormat.format("{\"to\":\"{0}\",\"notification\":{\"title\":\"Kraj rezervacije parkinga\",\"body\":\"Vas parking istice za {1} minuta.\"}}", token, time);
 
 	   OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 	   wr.write(notification);
