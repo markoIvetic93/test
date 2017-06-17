@@ -22,7 +22,7 @@ public class MyReservation extends Model{
 		super();
 		this.timeFrom = timeFrom;
 		this.timeTo = timeTo;
-		this.user = user;
+		this.resUser = user;
 		this.parking = parking;
 	}
 	
