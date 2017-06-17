@@ -15,7 +15,7 @@ public class SendPushNotification {
 
 	// userDeviceIdKey is the device id you will query from your database
 
-	public static String pushFCMNotification(String token, String time) throws Exception{
+	public static void pushFCMNotification(String token, String time) throws Exception{
 
 	   String authKey = AUTH_KEY_FCM; // You FCM AUTH key
 	   String FMCurl = API_URL_FCM; 
@@ -39,7 +39,6 @@ public class SendPushNotification {
 	   wr.write(notification);
 	   wr.flush();
 	   conn.getInputStream();
-	   return notification;
 	}
 	
 }

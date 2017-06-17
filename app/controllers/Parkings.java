@@ -151,13 +151,12 @@ public class Parkings extends Controller{
 	
 	public static void sendPushNot(String token, String time)
 	{
-		String notification = null;
 		try {
-			notification = SendPushNotification.pushFCMNotification(token, time);
+			SendPushNotification.pushFCMNotification(token, time);
 		} catch (Exception e) {
 				// TODO Auto-generated catch block
-			renderJSON("NIJE Poslata push notifikacija."+ notification);
+			error("Cannot send push notification!");
 		}
-		renderJSON("Poslata push notifikacija." + notification);
+		renderJSON(0);
 	}
 }
